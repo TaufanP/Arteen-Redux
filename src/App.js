@@ -76,17 +76,17 @@ class App extends Component {
   // ACTION
   //======================================================================================================================================
 
-  getProduct() {
-    axios
-      .get(URL_STRING + "product", {
-        headers: { "x-access-token": localStorage.getItem("token") }
-      })
-      .then(res => {
-        const data = res.data.result;
-        this.setState({ products: data });
-      })
-      .catch(err => console.log(err));
-  }
+  // getProduct() {
+  //   axios
+  //     .get(URL_STRING + "product", {
+  //       headers: { "x-access-token": localStorage.getItem("token") }
+  //     })
+  //     .then(res => {
+  //       const data = res.data.result;
+  //       this.setState({ products: data });
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 
   getProductSearch = search => {
     if (search === "") {
@@ -337,7 +337,7 @@ class App extends Component {
   //======================================================================================================================================
   componentDidMount() {
     if (localStorage.getItem("token") !== null) {
-      this.getProduct(); 
+      // this.getProduct(); 
     } else {
       this.props.history.push("/loginwarn");
     }

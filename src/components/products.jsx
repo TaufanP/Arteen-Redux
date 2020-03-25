@@ -6,23 +6,27 @@ import { getAllProduct } from "../redux/actions/product";
 
 class Products extends Component {
   state = {
-    productData: []
+    productData: [],
+    loading: false
   };
 
-  getUser = async () => {
+  getProducts = async () => {
+    this.setState({loading: true})
     await this.props.dispatch(getAllProduct());
     this.setState({
       productData: this.props.product.productData
     });
+    this.setState({loading: false})
   };
 
   componentDidMount() {
-    this.getUser();
+    this.getProducts();
   }
   render() {
+    const {loading} = this.state
     return (
       <div className="product-container">
-        {this.state.productData.map(product => (
+        {loading ? <div> Loading </div>: this.props.product.productData.map(product => (
           <ListProduct
             key={product.id}
             id={product.id}

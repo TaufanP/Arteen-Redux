@@ -1,59 +1,63 @@
 import React, { Component } from "react";
 import "../assets/css/login.css";
 import { URL_ADDRESS } from "../env.js";
+import axios from "axios";
 
 const URL_STRING = URL_ADDRESS;
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
-      password: "",
+      user: {
+        username: "",
+        password: ""
+      },
       loading: false,
-      error: false
+      error: false,
+      errMsg: ""
     };
   }
 
   handleChange = e => {
+    let user = { ...this.state.user };
+    user[e.target.name] = e.target.value;
     this.setState({
-      [e.target.name]: e.target.value
+      user
     });
   };
 
   handleSubmit = async event => {
     event.preventDefault();
-    this.setState({ loading: true });
-    await fetch(URL_STRING + "users/login/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.message) {
+    let data = this.state.user;
+    if (data) {
+      this.setState({ loading: true });
+      await axios.post(URL_STRING + "users/login/", data).then(res => {
+        if (res.data.msg === "Token is invalid") {
+          this.setState({
+            errMsg: res.data.msg,
+            loading: false
+          });
           this.setState({ error: true });
-          this.setState({ loading: false });
         } else {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("cashier", this.state.username);
           this.setState({ error: false });
           this.setState({ loading: false });
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("cashier", this.state.username);
           this.props.history.push("/product");
         }
-      })
-      .catch(err => {
-        this.setState({ error: true });
-        this.setState({ loading: false });
       });
+    } else {
+      this.setState({ errMsg: "Cant be null" });
+    }
   };
 
-  render() {
+  componentDidMount() {
     if (localStorage.getItem("token") !== null) {
       this.props.history.push("/product");
     }
+  }
+
+  render() {
     const { loading, error } = this.state;
     return (
       <div>
