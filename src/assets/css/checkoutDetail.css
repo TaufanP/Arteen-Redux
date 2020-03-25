@@ -1,0 +1,94 @@
+.form-show,
+.form-hide {
+  position: absolute;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 425px;
+  box-shadow: 0px 0px 0px 1000px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-show {
+  z-index: 100;
+  visibility: visible;
+}
+
+.form-hide {
+  visibility: hidden;
+}
+
+.header-checkout {
+  width: 100%;
+  display: flex;
+}
+
+.items-checkout {
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.buttons-checkout {
+  width: 100%;
+  flex: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-title{
+    display: flex;
+    flex-direction: column;
+    flex:1 
+}
+
+.header-receipt{
+    flex: 1;
+}
+
+.checkout{
+    width: 100%;
+    flex: 1;
+}
+
+.checkout-cashier{
+    width: 100%;
+    flex: 1;
+}
+
+.left-receipt{
+    justify-content: flex-end;
+    display: flex;
+    padding-top: 16px;
+}
+
+.button-print, .button-send-email{
+    width: 80%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.button-print{
+    background-color: rgb(38, 224, 95);
+}
+
+.button-send-email{
+    margin-top: 16px;
+    background-color: rgb(224, 38, 175);
+}
+
+.button-print:hover, .button-send-email:hover{
+  opacity: 0.75
+}

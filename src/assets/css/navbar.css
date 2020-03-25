@@ -1,0 +1,111 @@
+.navbar{
+    width: 100%;
+    height: 56px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 4px 0px rgba(27, 27, 27, 0.15);
+  }
+
+  .menu{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: rgb(249, 245, 245);
+    width: 5%;
+    height: 100%;
+
+  }
+
+  .menu img{
+    width: 32px;
+    height: 32px;
+    position: relative;
+    margin-top: 12px;
+    left: 24px;
+  }
+
+  .app-title{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    color: #333;
+    width: 15%;
+    height: 100%;
+  }
+
+  .title{
+      margin: 12px 0px 0px 64px;
+      display: inline-block;
+  }
+
+  .cart-header{
+    position: relative;
+    float: left;
+    width: 29%;
+    height: 100%;    
+    border-left: 2px solid #00000014;
+  }
+
+  .cart-title{
+    display: inline-block;
+    position: relative;
+    margin-top: 15px;
+    left: 160px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .cart-count{
+    display: inline-block;
+    position: relative;
+    margin-top: 15px;
+    left: 168px;
+    font-weight: bold;
+    font-size: 14px;    
+    background-color: #57CAD5;
+    border-radius: 100%;
+    padding: 0px 4px;
+    color: #FFF;
+  }
+
+  .search-bar{
+    position: relative;
+    float: left;
+    width: 40%;
+    height: 100%;
+  }
+
+  .search-bar input{
+    padding: 4px;
+    border: none;
+    border-radius: 4px; 
+    margin: 12px 0px 0px 100px;
+    width: 300px;
+    height: 24px;
+    background-color: #EEE;
+    color: #333;
+  }
+
+  .logout{
+    position: relative;
+    float: left;
+    width: 10.85%;
+    height: 100%;
+  }
+
+  .logout-label{
+    display: inline-block;
+    font-size: 14px;
+    position: relative;
+    margin-top: 16px;
+    padding: 4px 8px;
+    color: #FFF;
+    border-radius: 4px;
+    background-color: rgb(202, 39, 39);
+    cursor: pointer;
+  }
+
+  .logout-label:hover{
+    background-color: rgb(236, 23, 23);
+  }

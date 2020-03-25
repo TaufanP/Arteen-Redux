@@ -1,0 +1,50 @@
+body{
+  background-color: rgba(190, 195, 202, 0.3);
+}
+
+.add-button{
+  margin-top:16px;
+  cursor: pointer;
+}
+
+.list-container{
+  width: 864px;
+  margin: 16px;
+  margin-left: 72px;
+}
+
+.train-menu{
+  float: left;
+  position: relative;
+  background-color:#333333;
+  width: 56px;
+  height: 611px;
+  z-index: -10;
+}
+
+.cart{
+  width: 400px;
+  height: 611px;
+  background-color: #333333;
+  float: right;
+  position: relative;
+  z-index: -10;
+}
+
+.empty-cart{
+  position: relative;
+  left: 28%;
+  width: 150px;
+  height: 150px;
+}
+
+.empty-state{
+  position: relative;
+  top: 20%;
+  height: 50%;
+}
+
+.empty-title{
+  text-align: center;
+  color:#232323;
+}

@@ -1,0 +1,55 @@
+.form-update-show, .form-update-hide{
+    position: absolute;
+    padding: 0px 16px 16px 16px;
+    background-color: #FFF;
+    left: 25%;
+    top: 25%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 1000px rgba(0,0,0,0.5);
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.form-update-show{
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-update-hide{
+    visibility: hidden;
+}
+
+.input-product{
+    width: 95%;
+}
+
+.add-button-product, .close-button-product-update{
+    float: right;
+}
+
+.primary-button{
+    background-color: rgb(38, 224, 95);
+    padding: 8px 16px;
+
+}
+
+.primary-button:hover{
+    background-color: rgb(22, 193, 75);
+}
+
+.secondary-button-update{
+    background-color: rgb(222, 83, 83);
+    padding: 8px 24px;
+}
+
+.secondary-button-update:hover{
+    background-color:rgb(226, 47, 47);
+}
+
+.primary-button, .secondary-button-update{
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

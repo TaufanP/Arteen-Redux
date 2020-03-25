@@ -1,0 +1,62 @@
+.form-show, .form-hide{
+    position: absolute;
+    padding: 0px 16px 16px 16px;
+    background-color: #FFF;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 1000px rgba(0,0,0,0.5);
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.form-show{
+    z-index: 100;
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-hide{
+    visibility: hidden;
+}
+
+.input-product{
+    width: 95%;
+}
+
+.primary-button{
+    background-color: rgb(38, 224, 95);
+    padding: 8px 16px;
+
+}
+
+.primary-button:hover{
+    background-color: rgb(22, 193, 75);
+}
+
+.secondary-button{
+    background-color: rgb(222, 83, 83);
+    padding: 8px 24px;
+}
+
+.secondary-button:hover{
+    background-color:rgb(226, 47, 47);
+}
+
+.primary-button, .secondary-button{
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-container{
+    position: relative;
+    margin-left: 140px;
+    margin-top: 32px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    width: 180px;
+}

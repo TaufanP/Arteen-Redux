@@ -1,0 +1,26 @@
+.login-warn{
+    color: #333;
+    font-weight: lighter;
+    font-size: 100px;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+
+.login-button{
+    position: absolute;
+    width: 55px;
+    height: auto;
+    background-color: rgb(28, 150, 65);
+    top: 60%;
+    left: 45%;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.login-button:hover{
+    background-color: rgb(61, 187, 99);    
+}
+

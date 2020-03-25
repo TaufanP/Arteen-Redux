@@ -1,0 +1,21 @@
+.train-menu{
+    float: left;
+    position: relative;
+    background-color:#FFF;
+    width: 80px;
+    height: 650px;
+    z-index: -10;
+    box-shadow: 0px 0px 8px 4px rgba(35, 33, 33, 0.18);
+  }
+
+  .train-menu img{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    left: 24px;
+  }
+
+  .add-button{
+    margin-top:16px;
+    cursor: pointer;
+  }
