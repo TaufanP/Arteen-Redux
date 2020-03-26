@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import "../assets/css/listProducts.css";
+import { connect } from "react-redux";
+import { getAllProduct, deleteProduct, updateModal, getUpdateID } from "../redux/actions/product";
 
 class ListProduct extends Component {
+  handleDelete = async id => {
+    await this.props.dispatch(deleteProduct(id)).then(() => {
+      this.props.dispatch(getAllProduct());
+    });
+  };
+
+  handleEdit = (id) =>{
+    this.props.dispatch(updateModal(true))
+    this.props.dispatch(getUpdateID(id))
+  }
+
   render() {
     return (
-      <div className="item-container" onClick={() => this.props.selected}>
+      <div className="item-container">
         <div className="item-image">
           <img src={this.props.image} alt={this.props.name} />
         </div>
@@ -17,12 +30,12 @@ class ListProduct extends Component {
             <button
               className="delete-item"
               onClick={() => {
-                this.props.handleDelete(this.props.id);
+                this.handleDelete(this.props.id);
               }}
             >
               DELETE
             </button>
-            <button className="edit-item" onClick={this.props.showModalUpdate}>
+            <button className="edit-item" onClick={()=>this.handleEdit(this.props.id)}>
               EDIT
             </button>
           </div>
@@ -34,4 +47,8 @@ class ListProduct extends Component {
   }
 }
 
-export default ListProduct;
+const mapStateToProps = ({ product }) => {
+  return product;
+};
+
+export default connect(mapStateToProps)(ListProduct);

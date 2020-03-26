@@ -3,7 +3,10 @@ const initialValue = {
   errMsg: [],
   isPending: false,
   isRejected: false,
-  isFulfilled: false
+  isFulfilled: false,
+  showModal: false,
+  showModalUpdate: false,
+  updateID: 0
 };
 
 const productReducer = (state = initialValue, action) => {
@@ -49,6 +52,21 @@ const productReducer = (state = initialValue, action) => {
         isPending: false,
         isFulfilled: true,
         productData: action.payload.data.result
+      };
+    case "ADD_MODAL":
+      return {
+        ...state,
+        showModal: action.payload
+      };
+    case "UPDATE_MODAL":
+      return {
+        ...state,
+        showModalUpdate: action.payload
+      };
+    case "GET_UPDATE_ID":
+      return {
+        ...state,
+        updateID: action.payload
       };
     default:
       return state;

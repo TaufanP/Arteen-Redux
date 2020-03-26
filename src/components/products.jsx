@@ -1,55 +1,51 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/products.css";
 import ListProduct from "./listProduct";
 import { connect } from "react-redux";
 import { getAllProduct } from "../redux/actions/product";
 
-class Products extends Component {
-  state = {
-    productData: [],
-    loading: false
+const Products = props => {
+  const [loading, setLoading] = useState(false);
+
+  const getProducts = async () => {
+    setLoading(true);
+    await props.dispatch(getAllProduct());
+    setLoading(false);
   };
 
-  getProducts = async () => {
-    this.setState({loading: true})
-    await this.props.dispatch(getAllProduct());
-    this.setState({
-      productData: this.props.product.productData
-    });
-    this.setState({loading: false})
-  };
-
-  componentDidMount() {
-    this.getProducts();
-  }
-  render() {
-    const {loading} = this.state
-    return (
-      <div className="product-container">
-        {loading ? <div> Loading </div>: this.props.product.productData.map(product => (
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line
+  }, []);
+  return (
+    <div className="product-container">
+      {loading ? (
+        <div> Loading </div>
+      ) : (
+        props.product.productData.map(product => (
           <ListProduct
             key={product.id}
             id={product.id}
             name={product.name}
             price={product.price}
             image={product.image}
-            showModalUpdate={this.props.showModalUpdate}
-            handleDelete={this.props.handleDelete}
-            handleEdit={this.props.handleEdit}
-            handleCart={this.props.handleCart}
-            selected={this.props.selected}
-            selectedValue={this.props.selectedValue}
+            showModalUpdate={props.showModalUpdate}
+            handleDelete={props.handleDelete}
+            handleEdit={props.handleEdit}
+            handleCart={props.handleCart}
+            selected={props.selected}
+            selectedValue={props.selectedValue}
           />
-        ))}
-      </div>
-    );
-  }
-}
+        ))
+      )}
+    </div>
+  );
+};
 
-const mapStateToProps = ({product}) => {
-  return{
+const mapStateToProps = ({ product }) => {
+  return {
     product
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(Products);

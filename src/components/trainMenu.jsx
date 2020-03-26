@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/trainMenu.css";
+import {connect} from 'react-redux';
+import {addModal} from '../redux/actions/product'
 
 class TrainMenu extends Component {
   render() {
@@ -26,7 +28,7 @@ class TrainMenu extends Component {
           <div
             className="add-button"
             onClick={e => {
-              this.props.showModal();
+              this.props.dispatch(addModal(true))
             }}
           >
             <img src={require("../assets/images/add.svg")} alt="add product" />
@@ -37,4 +39,10 @@ class TrainMenu extends Component {
   }
 }
 
-export default TrainMenu;
+const MapStateToProps = ({product}) =>{
+  return(
+    product
+  )
+}
+
+export default connect (MapStateToProps)(TrainMenu);

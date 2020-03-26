@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_PRODUCT, GET_SEARCH } from "./actionType";
+import { GET_PRODUCT, GET_SEARCH, DELETE_PRODUCT, ADD_MODAL, UPDATE_MODAL, GET_UPDATE_ID } from "./actionType";
 import { URL_ADDRESS } from "../../env";
 
 const URL_STRING = URL_ADDRESS;
@@ -25,3 +25,35 @@ export const getSearchProduct = (keyword) => {
     })
   };
 };
+
+export const deleteProduct = (id) => {
+  return {
+    type: DELETE_PRODUCT,
+    payload: axios.delete(URL_STRING + "product/" + id,{
+      headers: {
+        "x-access-token": localStorage.getItem("token")
+      }
+    })
+  };
+};
+
+export const addModal = (bool) =>{
+  return{
+    type: ADD_MODAL,
+    payload: bool
+  }
+}
+
+export const updateModal = (bool) =>{
+  return{
+    type: UPDATE_MODAL,
+    payload: bool
+  }
+}
+
+export const getUpdateID = id =>{
+  return{
+    type: GET_UPDATE_ID,
+    payload: id
+  }
+}
