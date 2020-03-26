@@ -1,51 +1,54 @@
-import React, { Component } from "react";
+import React from "react";
 import "../assets/css/listProducts.css";
 import { connect } from "react-redux";
-import { getAllProduct, deleteProduct, updateModal, getUpdateID } from "../redux/actions/product";
+import {
+  getAllProduct,
+  deleteProduct,
+  updateModal,
+  getUpdateID
+} from "../redux/actions/product";
 
-class ListProduct extends Component {
-  handleDelete = async id => {
-    await this.props.dispatch(deleteProduct(id)).then(() => {
-      this.props.dispatch(getAllProduct());
+const ListProduct = props => {
+  const handleDelete = async id => {
+    await props.dispatch(deleteProduct(id)).then(() => {
+      props.dispatch(getAllProduct());
     });
   };
 
-  handleEdit = (id) =>{
-    this.props.dispatch(updateModal(true))
-    this.props.dispatch(getUpdateID(id))
-  }
+  const handleEdit = id => {
+    props.dispatch(updateModal(true));
+    props.dispatch(getUpdateID(id));
+  };
 
-  render() {
-    return (
-      <div className="item-container">
-        <div className="item-image">
-          <img src={this.props.image} alt={this.props.name} />
-        </div>
-        <div
-          className="distractor"
-          onClick={() => this.props.handleCart(this.props.id)}
-        ></div>
-        <div className="option-container">
-          <div className="slider">
-            <button
-              className="delete-item"
-              onClick={() => {
-                this.handleDelete(this.props.id);
-              }}
-            >
-              DELETE
-            </button>
-            <button className="edit-item" onClick={()=>this.handleEdit(this.props.id)}>
-              EDIT
-            </button>
-          </div>
-          <div className="product-name">{this.props.name}</div>
-          <div className="product-price">Rp. {this.props.price}</div>
-        </div>
+  return (
+    <div className="item-container">
+      <div className="item-image">
+        <img src={props.image} alt={props.name} />
       </div>
-    );
-  }
-}
+      <div
+        className="distractor"
+        onClick={() => props.handleCart(props.id)}
+      ></div>
+      <div className="option-container">
+        <div className="slider">
+          <button
+            className="delete-item"
+            onClick={() => {
+              handleDelete(props.id);
+            }}
+          >
+            DELETE
+          </button>
+          <button className="edit-item" onClick={() => handleEdit(props.id)}>
+            EDIT
+          </button>
+        </div>
+        <div className="product-name">{props.name}</div>
+        <div className="product-price">Rp. {props.price}</div>
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = ({ product }) => {
   return product;

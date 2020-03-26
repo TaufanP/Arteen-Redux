@@ -1,40 +1,29 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/loginWarn.css";
 import TrainMenu from "./trainMenu";
 import Header from "./header";
 import CardHistory from "./cardHistory";
 
-class History extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false
-    };
-  }
-  relogin = () => {
-    this.props.history.push("/product");
-  };
-  showModal = () => {
-    this.setState({ show: true });
+const History = props => {// eslint-disable-next-line
+  const [show, setShow] = useState(false);
+
+  const showModal = () => {
+    setShow(true);
   };
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
-  componentDidMount() {
+  useEffect(() => {
     if (localStorage.getItem("token") === null) {
-      this.props.history.push("/loginwarn");
-    }
-  }
-  render() {
-    return (
-      <div>
-        <Header />
-        <TrainMenu  showModal={this.showModal} />
-        <CardHistory />
-      </div>
-    );
-  }
-}
+      props.history.push("/loginwarn");
+    }// eslint-disable-next-line
+  }, []);
+
+  return (
+    <div>
+      <Header />
+      <TrainMenu showModal={showModal} />
+      <CardHistory />
+    </div>
+  );
+};
 
 export default History;

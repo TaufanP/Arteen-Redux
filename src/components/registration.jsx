@@ -1,140 +1,129 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/login.css";
 import axios from "axios";
 import { URL_ADDRESS } from "../env";
 
 const URL_STRING = URL_ADDRESS;
-class Registration extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      username: "",
-      password: "",
-      loading: false,
-    };
-  }
+const Registration = props => {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  handleSubmit = async event => {
-    const { name, username, password } = this.state;
+  const handleSubmit = async event => {
     event.preventDefault();
     if (name === "") {
-      this.setState({ error: "Complete Name" });
+      setError("Complete Name");
     } else if (username === "") {
-      this.setState({ error: "Username" });
+      setError("Username");
     } else if (password === "") {
-      this.setState({ error: "Password" });
+      setError("Password");
     } else {
       const data = {
         name,
         username,
         password
       };
-      this.setState({ loading: true });
+      setLoading(true);
       await axios
         .post(URL_STRING + "users/", data)
         .then(res => {
-          this.props.history.push("/");
-          this.setState({ loading: false });
+          props.history.push("/");
+          setLoading(false);
         })
         .catch(err => {
           alert("Registration failed! Please try again!");
-          this.setState({ loading: false });
+          setLoading(false);
         });
     }
   };
 
-  render() {
+  useEffect(() => {
     if (localStorage.getItem("token") !== null) {
-      this.props.history.push("/product");
-    }
-    const { loading, error } = this.state;
-    return (
-      <div>
-        <div className="login-container">
-          <form onSubmit={this.handleSubmit}>
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    <input
-                      placeholder="Complete Name"
-                      className="login-input"
-                      type="text"
-                      value={this.state.name}
-                      name="name"
-                      onChange={this.handleChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input
-                      placeholder="Username"
-                      className="login-input"
-                      type="text"
-                      value={this.state.username}
-                      name="username"
-                      onChange={this.handleChange}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input
-                      placeholder="Password"
-                      className="login-input"
-                      type="password"
-                      value={this.state.password}
-                      name="password"
-                      onChange={this.handleChange}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            {error !== "" && (
-              <div
-                style={{
-                  marginTop: 8,
-                  marginBottom: 8,
-                  fontSize: 14,
-                  color: "red"
-                }}
-              >
-                {error} cannot be empty!
-              </div>
-            )}
-            {loading ? (
-              <button className="processing" type="submit">
-                <span style={{ color: "#333" }}>PROCESSING . . .</span>
-              </button>
-            ) : (
-              <button className="login" type="submit">
-                <span style={{ color: "#FFF" }}>SIGN UP</span>
-              </button>
-            )}
-          </form>
-          <div
-            className="signup-link"
-            style={{ fontSize: 12 }}
-            onClick={() => this.props.history.push("/")}
-          >
-            Already have an account?{" "}
-            <span style={{ color: "rgb(28, 150, 65)", fontSize: 12 }}>
-              SIGN IN
-            </span>
-          </div>
+      props.history.push("/product");
+    } // eslint-disable-next-line
+  }, []);
+
+  return (
+    <div>
+      <div className="login-container">
+        <form onSubmit={handleSubmit}>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    placeholder="Complete Name"
+                    className="login-input"
+                    type="text"
+                    value={name}
+                    name="name"
+                    onChange={event => setName(event.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    placeholder="Username"
+                    className="login-input"
+                    type="text"
+                    value={username}
+                    name="username"
+                    onChange={event => setUsername(event.target.value)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    placeholder="Password"
+                    className="login-input"
+                    type="password"
+                    value={password}
+                    name="password"
+                    onChange={event => setPassword(event.target.value)}
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          {error !== "" && (
+            <div
+              style={{
+                marginTop: 8,
+                marginBottom: 8,
+                fontSize: 14,
+                color: "red"
+              }}
+            >
+              {error} cannot be empty!
+            </div>
+          )}
+          {loading ? (
+            <button className="processing" type="submit">
+              <span style={{ color: "#333" }}>PROCESSING . . .</span>
+            </button>
+          ) : (
+            <button className="login" type="submit">
+              <span style={{ color: "#FFF" }}>SIGN UP</span>
+            </button>
+          )}
+        </form>
+        <div
+          className="signup-link"
+          style={{ fontSize: 12 }}
+          onClick={() => props.history.push("/")}
+        >
+          Already have an account?{" "}
+          <span style={{ color: "rgb(28, 150, 65)", fontSize: 12 }}>
+            SIGN IN
+          </span>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Registration;

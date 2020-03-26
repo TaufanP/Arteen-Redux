@@ -105,7 +105,7 @@ const Login = props => {
         <div
           className="signup-link"
           style={{ fontSize: 14 }}
-          onClick={() => this.props.history.push("/regist")}
+          onClick={() => props.history.push("/regist")}
         >
           Do not have an account?{" "}
           <span style={{ color: "rgb(28, 150, 65)", fontSize: 14 }}>

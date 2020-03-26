@@ -1,23 +1,23 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "../assets/css/loginWarn.css";
 
-class Navbar extends Component {
-  relogin = () => {
-    this.props.history.push("/");
+const LoginWarn = props => {
+  const relogin = () => {
+    props.history.push("/");
   };
-  render() {
+  useEffect(() => {
     if (localStorage.getItem("token") !== null) {
-      this.props.history.push("/product");
-    }
-    return (
-      <div>
-        <div className="login-warn">You need to login first!</div>
-        <div className="login-button" onClick={this.relogin}>
-          LOG IN
-        </div>
+      props.history.push("/product");
+    }// eslint-disable-next-line
+  }, []);
+  return (
+    <div>
+      <div className="login-warn">You need to login first!</div>
+      <div className="login-button" onClick={relogin}>
+        LOG IN
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Navbar;
+export default LoginWarn;

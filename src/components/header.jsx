@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "../assets/css/navbar.css";
 import FoodItemNav from "./foodItemNav";
 
-class Header extends Component {
-  render() {
+const Header = () => {
     return (
       <div>
         <div className="navbar">
@@ -15,6 +14,5 @@ class Header extends Component {
       </div>
     );
   }
-}
 
 export default Header;
