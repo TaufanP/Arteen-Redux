@@ -12,15 +12,11 @@ import { URL_ADDRESS } from "./env";
 import { connect } from "react-redux";
 
 const URL_STRING = URL_ADDRESS;
-let cartId = [];
-let cart = [];
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
       cart: [],
-      name: "",
       totalPrice: 0,
       detailCheckout: [],
       detailOrders: [],
@@ -37,28 +33,6 @@ class App extends Component {
 
   // Handle
   //======================================================================================================================================
-
-  handleCartRemove = product => {
-    cartId = cartId.filter(i => i !== product);
-    cart = cart.filter(i => i.id !== product);
-    this.setState({ cart });
-  };
-
-  handleCartCancel = () => {
-    cartId = [];
-    cart = [];
-    this.setState({ cart });
-  };
-
-  handleTotalPrice = () => {
-    let totalPrice = 0;
-    this.state.cart.map(async value => {
-      const quantity = localStorage.getItem(value.id);
-      totalPrice = totalPrice + quantity * value.price;
-    });
-    this.setState({ totalPrice });
-  };
-
   handleSubmitOrder = async invoice => {
     this.setState({ loadingSubmitOrder: true });
     this.setState({ invoice });
@@ -111,8 +85,6 @@ class App extends Component {
         this.setState({ detailOrders });
       })
       .catch(err => console.log(err));
-    cart = [];
-    cartId = [];
     this.setState({ cart: [] });
     this.setState({ showCheckout: !this.state.showCheckout });
     this.state.cart.map(async value => {
@@ -139,14 +111,11 @@ class App extends Component {
       <div>
         <Navbar cart={this.state.cart} handleLogout={this.handleLogout} />
         <TrainMenu />
-        <Products handleCart={this.handleCart} />
+        <Products />
         <Cart
           cart={this.state.cart}
-          handleCartRemove={this.handleCartRemove}
           handleSubmitOrder={this.handleSubmitOrder}
-          handleTotalPrice={this.handleTotalPrice}
           totalPrice={this.state.totalPrice}
-          handleCartCancel={this.handleCartCancel}
         />
         <FormProduct />
         <FormUpdate />

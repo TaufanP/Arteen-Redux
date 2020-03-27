@@ -20,12 +20,19 @@ const cartReducer = (state = initialValue, action) => {
         baskets: basket
       };
     case "REMOVE_ITEM":
-      let basketd = [...state.baskets];
-      basketd = basketd.filter(value => value.id !== action.payload);
+      let basketRemove = [...state.baskets];
+      basketRemove = basketRemove.filter(value => value.id !== action.payload);
       return {
         ...state,
-        baskets: basketd
+        baskets: basketRemove
       };
+      case "REMOVE_CART":
+        let basketCancel = [...state.baskets];
+        basketCancel = []
+        return {
+          ...state,
+          baskets: basketCancel
+        };
     default:
       return state;
   }

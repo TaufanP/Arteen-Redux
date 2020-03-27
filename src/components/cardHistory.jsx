@@ -42,7 +42,6 @@ class CardHistory extends Component {
       if(value.last_payment.slice(0,10)===this.state.todaysDate){
         todaysIncome = todaysIncome + value.total
       }
-      return console.log('tes')
     });
     this.setState({ income });
     this.setState({ todaysIncome });
