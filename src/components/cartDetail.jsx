@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../assets/css/cartDetail.css";
+import {connect} from 'react-redux';
+import {removeItem} from '../redux/actions/cart'
 
 class CartDetail extends Component {
   constructor() {
@@ -18,8 +20,7 @@ class CartDetail extends Component {
     if (this.state.counter > 1) {
       this.setState({ counter: this.state.counter - del });
     } else {
-      this.props.handleCartRemove(this.props.cart.id);
-      localStorage.removeItem(this.props.cart.id);
+      this.props.dispatch(removeItem(this.props.cart.id));
     }
   };
 
@@ -55,4 +56,10 @@ class CartDetail extends Component {
   }
 }
 
-export default CartDetail;
+const mapStateToProps = ({cart: cartd}) => {
+  return{
+    cartd
+  }
+}
+
+export default connect (mapStateToProps)(CartDetail);

@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import "../assets/css/cart.css";
 import CartDetail from "./cartDetail";
+import { connect } from "react-redux";
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: [this.props.cart.baskets]
+    };
+  }
   render() {
+    console.log(this.props.cart.baskets);
     const date = new Date();
     const fullYear = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -23,7 +31,7 @@ class Cart extends Component {
     total += this.props.cart.length !== 0 ? "show" : "hide";
     return (
       <div className="cart-container">
-        {this.props.cart.length === 0 ? (
+        {this.props.cart.baskets.length === 0 ? (
           <div className="empty-cart">
             <img
               src={require("../assets/images/empty-cart.svg")}
@@ -35,7 +43,7 @@ class Cart extends Component {
             </span>
           </div>
         ) : (
-          this.props.cart.map(value => (
+          this.props.cart.baskets.map(value => (
             <CartDetail
               key={value.id}
               cart={value}
@@ -45,35 +53,37 @@ class Cart extends Component {
           ))
         )}
         <div className={total}></div>
-        {!this.props.loadingSubmitOrder ? (
-          <div
-            className={modal}
-            onClick={() => this.props.handleSubmitOrder(invoice)}
-          >
-            CHECKOUT
-          </div>
-        ) : (
-          <div
-            className="button-checkout-processing"
-          >
-            PROCESSING . . .
-          </div>
+        {this.props.cart.baskets.length !== 0 && (
+          <>
+            <div
+              className={modal}
+              onClick={() => this.props.handleSubmitOrder(invoice)}
+            >
+              CHECKOUT
+            </div>
+            <div
+              className={modal}
+              style={{
+                backgroundColor: "rgb(222, 83, 83)",
+                borderColor: "rgb(222, 83, 83)",
+                borderWidth: 1,
+                marginTop: 16
+              }}
+              onClick={() => this.props.handleCartCancel()}
+            >
+              CANCEL
+            </div>
+          </>
         )}
-        <div
-          className={modal}
-          style={{
-            backgroundColor: "rgb(222, 83, 83)",
-            borderColor: "rgb(222, 83, 83)",
-            borderWidth: 1,
-            marginTop: 16
-          }}
-          onClick={() => this.props.handleCartCancel()}
-        >
-          CANCEL
-        </div>
       </div>
     );
   }
 }
 
-export default Cart;
+const MapStateToProps = ({ cart }) => {
+  return {
+    cart
+  };
+};
+
+export default connect(MapStateToProps)(Cart);

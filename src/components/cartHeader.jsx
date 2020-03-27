@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import '../assets/css/navbar.css';
+import {connect} from 'react-redux';
 
-class CartHeader extends Component{
-    render(){
+const CartHeader = (props) => {
         return(
             <div className="cart-header">
               <span className="cart-title">Cart</span>
               <span className="cart-count">
-                {this.props.cart.length === 0 ? 0 : this.props.cart.length}
+                {props.cart.baskets.length === 0 ? 0 : props.cart.baskets.length}
               </span>
             </div>
         )
     }
+
+const mapStateToProps = ({cart}) => {
+  return{
+    cart
+  }
 }
 
-export default CartHeader;
+export default connect (mapStateToProps)(CartHeader);

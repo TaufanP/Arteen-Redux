@@ -38,25 +38,6 @@ class App extends Component {
   // Handle
   //======================================================================================================================================
 
-  handleCart = product => {
-    if (cartId.length === 0) {
-      cartId.push(product);
-      this.state.products.map(value => {
-        if (value.id === product) cart.push(value);
-        return console.log("tes");
-      });
-    } else {
-      if (!cartId.includes(product)) {
-        cartId.push(product);
-        this.state.products.map(value => {
-          if (value.id === product) cart.push(value);
-          return console.log("tes");
-        });
-      }
-    }
-    this.setState({ cart });
-  };
-
   handleCartRemove = product => {
     cartId = cartId.filter(i => i !== product);
     cart = cart.filter(i => i.id !== product);

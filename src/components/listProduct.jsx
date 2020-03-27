@@ -8,6 +8,8 @@ import {
   getUpdateID
 } from "../redux/actions/product";
 
+import {addToCart} from '../redux/actions/cart'
+
 const ListProduct = props => {
   const handleDelete = async id => {
     await props.dispatch(deleteProduct(id)).then(() => {
@@ -20,6 +22,18 @@ const ListProduct = props => {
     props.dispatch(getUpdateID(id));
   };
 
+  const dataProduct = {
+    id: props.id,
+    name: props.name,
+    price: props.price,
+    image: props.image,
+    stock: props.stock,
+  }
+
+  const handleCart = data =>{
+    props.dispatch(addToCart(data))
+  }
+
   return (
     <div className="item-container">
       <div className="item-image">
@@ -27,7 +41,7 @@ const ListProduct = props => {
       </div>
       <div
         className="distractor"
-        onClick={() => props.handleCart(props.id)}
+        onClick={() => handleCart(dataProduct)}
       ></div>
       <div className="option-container">
         <div className="slider">

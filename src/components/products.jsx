@@ -29,6 +29,7 @@ const Products = props => {
             name={product.name}
             price={product.price}
             image={product.image}
+            stock = {product.stock}
             showModalUpdate={props.showModalUpdate}
             handleDelete={props.handleDelete}
             handleEdit={props.handleEdit}
