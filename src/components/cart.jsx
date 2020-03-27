@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/css/cart.css";
 import CartDetail from "./cartDetail";
 import { connect } from "react-redux";
@@ -15,8 +15,6 @@ import { URL_ADDRESS } from "../env.js";
 const URL_STRING = URL_ADDRESS;
 
 const Cart = props => {
-  const [invoiceFinal, setInvoiceFinal] = useState("");
-
   const date = new Date();
   const fullYear = date.getFullYear();
   let month = date.getMonth() + 1;
@@ -35,7 +33,6 @@ const Cart = props => {
   total += props.cart.length !== 0 ? "show" : "hide";
 
   const handleSubmitOrder = async invoice => {
-    setInvoiceFinal(invoice);
     let totalPrice = 0;
     const config = {
       headers: {

@@ -7,12 +7,12 @@ const initialValue = {
 
 const checkoutReducer = (state = initialValue, action) => {
   switch (action.type) {
-    case "DETAIL_CHECKOUT":
+    case "DETAIL_CHECKOUT_FULFILLED":
       return {
         ...state,
-        checkDetail: action.payload.data.result
+        checkDetail: action.payload.data.result[0]
       };
-    case "DETAIL_ORDERS":
+    case "DETAIL_ORDERS_FULFILLED":
       return {
         ...state,
         ordDetail: action.payload.data.result

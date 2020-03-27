@@ -36,7 +36,7 @@ class CardHistory extends Component {
       })
       .catch(err => alert("Fail to get the data"));
     let income = 0;
-    let todaysIncome = 0;
+    let todaysIncome = 0;// eslint-disable-next-line
     this.state.checkouts.map(value => {
       income = income + value.total
       if(value.last_payment.slice(0,10)===this.state.todaysDate){
