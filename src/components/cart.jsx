@@ -33,6 +33,7 @@ const Cart = props => {
   total += props.cart.length !== 0 ? "show" : "hide";
 
   const handleSubmitOrder = async invoice => {
+    props.dispatch(checkoutModal(true));
     let totalPrice = 0;
     const config = {
       headers: {
@@ -75,7 +76,6 @@ const Cart = props => {
       localStorage.removeItem(value.id);
     });
     props.dispatch(getInvoice(invoice));
-    props.dispatch(checkoutModal(true));
   };
 
   return (

@@ -92,3 +92,8 @@
 .button-print:hover, .button-send-email:hover{
   opacity: 0.75
 }
+
+.checkout-loading{
+  width: 100%;
+  height: 200px;
+}

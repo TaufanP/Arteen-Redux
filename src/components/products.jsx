@@ -20,7 +20,14 @@ const Products = props => {
   return (
     <div className="product-container">
       {loading ? (
-        <div> Loading </div>
+        <div className="product-loading-container">
+          <div className="product-loading">
+            <div className = "ball-1"></div>
+            <div className = "ball-2"></div>
+            <div className = "ball-3"></div>
+            <div className = "ball-4"></div>
+          </div>
+        </div>
       ) : (
         props.product.productData.map(product => (
           <ListProduct
@@ -29,7 +36,7 @@ const Products = props => {
             name={product.name}
             price={product.price}
             image={product.image}
-            stock = {product.stock}
+            stock={product.stock}
             showModalUpdate={props.showModalUpdate}
             handleDelete={props.handleDelete}
             handleEdit={props.handleEdit}

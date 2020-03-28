@@ -1,87 +1,129 @@
-.item-container{
-    margin: 16px 0px 16px 15px;
-    position: relative;
-    float:left;
-    width: 200px;
-    height: 200px;
+.item-container {
+  margin: 16px 0px 16px 15px;
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
 }
 
-.item-image, .distractor, .item-image-selected{
-    width: 100%;
-    height: 79%;
+.item-image,
+.distractor,
+.item-image-selected {
+  width: 100%;
+  height: 79%;
 }
 
-.distractor{
-    z-index: 10;
-    position: absolute;
-    top: 0px;
+.distractor {
+  z-index: 10;
+  position: absolute;
+  top: 0px;
 }
 
-.item-image img{
-    border-radius: 8px 8px 0px 0px;
-    width: 100%;
-    height: 100%;
+.item-image img {
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: 100%;
 }
 
-.item-image-selected img{
-    border-radius: 8px 8px 0px 0px;
-    width: 100%;
-    height: 100%;
-    filter: grayscale(100%);
+.item-image-selected img {
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
 }
 
-.product-name, .product-price{
-    position: relative;
+.product-name,
+.product-price {
+  position: relative;
 }
 
-.product-price{
-    font-weight: bold;
+.product-price {
+  font-weight: bold;
 }
 
-.slider{
-    position: absolute;
-    width: 100%;
-    height: 42px;
-    background-color: rgba(20,20,20,1);
-    z-index: 1;
-    transition: 0.4s all ease-in-out;
-    transform: translate(0px, -20px);
-    opacity: 0;
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 42px;
+  background-color: rgba(20, 20, 20, 1);
+  z-index: 1;
+  transition: 0.4s all ease-in-out;
+  transform: translate(0px, -20px);
+  opacity: 0;
 }
 
-.option-container{
-    width: 100%;
-    height: 42px;
+.option-container {
+  width: 100%;
+  height: 42px;
 }
 
-.option-container:hover .slider{
-    transform: translate(0px, 0px);
-    opacity: 1;
+.option-container:hover .slider {
+  transform: translate(0px, 0px);
+  opacity: 1;
 }
 
-.delete-item{
-    background-color: rgb(222, 83, 83);
+.delete-item {
+  background-color: rgb(222, 83, 83);
 }
 
-.edit-item{
-    background-color: rgb(38, 224, 95);
+.edit-item {
+  background-color: rgb(38, 224, 95);
 }
 
-.delete-item:hover{
-    background-color: rgb(226, 47, 47);
+.delete-item:hover {
+  background-color: rgb(226, 47, 47);
 }
 
-.edit-item:hover{
-    background-color: rgb(22, 193, 75);
+.edit-item:hover {
+  background-color: rgb(22, 193, 75);
 }
 
-
-.delete-item, .edit-item{
-    width: 50%;
-    height: 100%;
-    position: relative;
-    float: left;
-    border: none;
-    color: #FFF;
-    cursor: pointer;
+.delete-item,
+.edit-item {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  float: left;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }
+
+.product-loading-container {
+  background-color: rgba(240, 240, 240, 0.8);
+  width: 100%;
+  height: 100%;
+}
+
+.product-loading {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: row;
+}
+
+.product-loading div {
+  flex: 1;
+  background-color: rgba(20, 20, 20, 1);
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-right: 8px;
+}
+
+@keyframes bounce-3rd {
+    0% { transform: translateY(0); }
+   16% { transform: translateY(-125%); }
+   33% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+[class^=ball-] {
+  animation: 800ms ease-out bounce-3rd infinite;
+}
+.ball-1 { animation-delay: 0s; }
+.ball-2 { animation-delay: 150ms; }
+.ball-3 { animation-delay: 300ms; }
+.ball-4 { animation-delay: 450ms; }
