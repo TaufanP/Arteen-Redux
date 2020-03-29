@@ -21,6 +21,10 @@ const CartDetail = props => {
     localStorage.setItem(props.cart.id, counter);// eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem(props.cart.id, counter);// eslint-disable-next-line
+  }, [counter]);
+
   const { image, name, price } = props.cart;
   return (
     <div className="cart-detail-container">

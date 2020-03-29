@@ -38,7 +38,7 @@ class CheckoutDetail extends Component {
                   {this.props.checkout.ordDetail.map(value => {
                     return (
                       <tr style={{ padding: 8 }} key={value.id}>
-                        <td style={{ padding: 8 }}>{value.name}</td>
+                        <td style={{ padding: 8 }}>{value.name} x {value.quantity}</td>
                         <td style={{ textAlign: "right", padding: 8 }}>
                           Rp. {value.total_price}
                         </td>

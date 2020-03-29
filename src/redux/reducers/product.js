@@ -6,7 +6,8 @@ const initialValue = {
   isFulfilled: false,
   showModal: false,
   showModalUpdate: false,
-  updateID: 0
+  updateID: 0,
+  errMsg: ''
 };
 
 const productReducer = (state = initialValue, action) => {
@@ -30,7 +31,8 @@ const productReducer = (state = initialValue, action) => {
         ...state,
         isPending: false,
         isFulfilled: true,
-        productData: action.payload.data.result
+        productData: action.payload.data.result,
+        errMsg: action.payload.data.msg
       };
     case "GET_SEARCH_PENDING":
       return {
