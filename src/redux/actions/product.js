@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_PRODUCT, GET_SEARCH, DELETE_PRODUCT, ADD_MODAL, UPDATE_MODAL, GET_UPDATE_ID } from "./actionType";
+import { GET_PRODUCT, GET_SEARCH, DELETE_PRODUCT, ADD_MODAL, UPDATE_MODAL, GET_UPDATE_ID, SORT_PRODUCT } from "./actionType";
 import { URL_ADDRESS } from "../../env";
 
 const URL_STRING = URL_ADDRESS;
@@ -8,6 +8,17 @@ export const getAllProduct = () => {
   return {
     type: GET_PRODUCT,
     payload: axios.get(URL_STRING + "product/",{
+      headers: {
+        "x-access-token": localStorage.getItem("token")
+      }
+    })
+  };
+};
+
+export const sortProduct = (key) => {
+  return {
+    type: SORT_PRODUCT,
+    payload: axios.get(URL_STRING + "product/sort/" + key,{
       headers: {
         "x-access-token": localStorage.getItem("token")
       }

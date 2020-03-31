@@ -7,7 +7,7 @@ const initialValue = {
   showModal: false,
   showModalUpdate: false,
   updateID: 0,
-  errMsg: ''
+  errMsg: ""
 };
 
 const productReducer = (state = initialValue, action) => {
@@ -33,6 +33,27 @@ const productReducer = (state = initialValue, action) => {
         isFulfilled: true,
         productData: action.payload.data.result,
         errMsg: action.payload.data.msg
+      };
+    case "SORT_PRODUCT_PENDING":
+      return {
+        ...state,
+        isPending: true,
+        isRejected: false,
+        isFulfilled: false
+      };
+    case "SORT_PRODUCT_REJECTED":
+      return {
+        ...state,
+        isPending: false,
+        isRejected: true,
+        errMsg: action.payload.data
+      };
+    case "SORT_PRODUCT_FULFILLED":
+      return {
+        ...state,
+        isPending: false,
+        isFulfilled: true,
+        productData: action.payload.data.result,
       };
     case "GET_SEARCH_PENDING":
       return {

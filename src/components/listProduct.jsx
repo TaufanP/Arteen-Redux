@@ -8,7 +8,7 @@ import {
   getUpdateID
 } from "../redux/actions/product";
 
-import {addToCart} from '../redux/actions/cart'
+import { addToCart } from "../redux/actions/cart";
 
 const ListProduct = props => {
   const handleDelete = async id => {
@@ -27,38 +27,54 @@ const ListProduct = props => {
     name: props.name,
     price: props.price,
     image: props.image,
-    stock: props.stock,
-  }
+    stock: props.stock
+  };
 
-  const handleCart = data =>{
-    props.dispatch(addToCart(data))
-  }
+  const handleCart = data => {
+    props.dispatch(addToCart(data));
+  };
 
   return (
     <div className="item-container">
-      <div className="item-image">
+      <div className="item-image" onClick={() => handleCart(dataProduct)}>
         <img src={props.image} alt={props.name} />
       </div>
-      <div
-        className="distractor"
-        onClick={() => handleCart(dataProduct)}
-      ></div>
-      <div className="option-container">
-        <div className="slider">
-          <button
-            className="delete-item"
+      <div className="misc-container">
+        <div className="name-price-container">
+          <div className="product-name">{props.name}</div>
+          <div className="product-price">Rp. {props.price}</div>
+        </div>
+        <div className="options-container">
+          <div className="edit-option" onClick={() => handleEdit(props.id)}>
+            <img
+              src={require("../assets/images/pencil.svg")}
+              alt = "icon"
+              style={{
+                width: 28,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 6
+              }}
+            />
+          </div>
+          <div
+            className="delete-option"
             onClick={() => {
               handleDelete(props.id);
             }}
           >
-            DELETE
-          </button>
-          <button className="edit-item" onClick={() => handleEdit(props.id)}>
-            EDIT
-          </button>
+            <img
+              src={require("../assets/images/ic_delete_48px.svg")}
+              alt = "icon"
+              style={{
+                width: 32,
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: 4
+              }}
+            />
+          </div>
         </div>
-        <div className="product-name">{props.name}</div>
-        <div className="product-price">Rp. {props.price}</div>
       </div>
     </div>
   );

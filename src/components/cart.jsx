@@ -52,10 +52,10 @@ const Cart = props => {
 
       await axios
         .post(URL_STRING + "order/", data, config)
-        .then(res => {
-          console.log("berhasil order");
-        })
-        .catch(err => console.log(err));
+        // .then(res => {
+        //   console.log("berhasil order");
+        // })
+        // .catch(err => console.log(err));
     });
     const dataCheckout = {
       invoice,
@@ -63,10 +63,10 @@ const Cart = props => {
     };
     await axios
       .post(URL_STRING + "checkout/", dataCheckout, config)
-      .then(res => {
-        console.log("berhasil order");
-      })
-      .catch(err => console.log(err));
+      // .then(res => {
+      //   console.log("berhasil order");
+      // })
+      // .catch(err => console.log(err));
 
     props.dispatch(detailCheckout(invoice));
     props.dispatch(detailOrders(invoice));

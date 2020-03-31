@@ -6,11 +6,20 @@
   height: 200px;
 }
 
+.item-image:hover{
+  transform: scale(1.03)
+}
+
+.item-image:active{
+  transform: scale(0.95)
+}
+
 .item-image,
 .distractor,
 .item-image-selected {
   width: 100%;
   height: 79%;
+  transition: ease-in-out 0.1s all;
 }
 
 .distractor {
@@ -30,6 +39,32 @@
   width: 100%;
   height: 100%;
   filter: grayscale(100%);
+}
+
+.misc-container{
+  display: flex;
+}
+
+.name-price-container{
+  flex: 2;
+}
+
+.options-container{
+  flex: 1;
+  display: flex;
+}
+
+.edit-option, .delete-option{
+  cursor: pointer;
+  transition: ease-in-out 0.1s all;
+}
+
+.edit-option:hover, .delete-option:hover{
+  transform: scale(1.2)
+}
+
+.edit-option:active, .delete-option:active{
+  transform: scale(0.9)
 }
 
 .product-name,

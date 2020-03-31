@@ -32,12 +32,10 @@ const FormProduct = props => {
       }
     };
 
-    await axios
-      .post(URL_STRING + "product/", formData, config)
-      .then(res => {
-        props.dispatch(addModal(false));
-      })
-      .catch(err => console.log("gagal masuk"));
+    await axios.post(URL_STRING + "product/", formData, config).then(res => {
+      props.dispatch(addModal(false));
+    });
+    // .catch(err => console.log("gagal masuk"));
 
     props.dispatch(getAllProduct());
   };
@@ -47,7 +45,7 @@ const FormProduct = props => {
   return (
     <div className={modal}>
       <h3 className="form-title">Add Item</h3>
-      <form onSubmit={handleSubmit}>
+      <form>
         <table>
           <tbody>
             <tr>
@@ -124,22 +122,22 @@ const FormProduct = props => {
             </tr>
           </tbody>
         </table>
-        <div className="button-container">
-          <div className="close-button-product">
-            <button
-              className="secondary-button"
-              onClick={() => props.dispatch(addModal(false))}
-            >
-              CANCEL
-            </button>
-          </div>
-          <div className="add-button-product">
-            <button type="submit" className="primary-button">
-              ADD
-            </button>
-          </div>
-        </div>
       </form>
+      <div className="button-container">
+        <div className="close-button-product">
+          <button
+            className="secondary-button"
+            onClick={() => props.dispatch(addModal(false))}
+          >
+            CANCEL
+          </button>
+        </div>
+        <div className="add-button-product">
+          <button onClick={handleSubmit} className="primary-button">
+            ADD
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

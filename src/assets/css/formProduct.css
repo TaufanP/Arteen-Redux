@@ -53,10 +53,10 @@
 
 .button-container{
     position: relative;
-    margin-left: 140px;
+    align-items: flex-end;
     margin-top: 32px;
     justify-content: space-between;
     display: flex;
     flex-direction: row;
-    width: 180px;
+    margin-left: 190px;
 }

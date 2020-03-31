@@ -15,7 +15,8 @@ const FormUpdate = props => {
   const [image, setImage] = useState(null);
   const [id_category, setId_category] = useState(0);
 
-  const handleUpdate = async id => {
+  const handleUpdate = async (id, e) => {
+    e.preventDefault();
     let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -23,6 +24,7 @@ const FormUpdate = props => {
     formData.append("stock", stock);
     formData.append("image", image);
     formData.append("id_category", id_category);
+
     const config = {
       headers: {
         "content-type": "multipart/form-data",
@@ -32,8 +34,8 @@ const FormUpdate = props => {
 
     await axios
       .patch(URL_STRING + "product/" + id, formData, config)
-      .then(res => props.dispatch(updateModal(false)))
-      .catch(err => console.log("gagal masuk"));
+      .then(res => props.dispatch(updateModal(false)));
+    // .catch(err => console.log("gagal masuk"));
     props.dispatch(getAllProduct());
   };
 
@@ -42,7 +44,7 @@ const FormUpdate = props => {
   return (
     <div className={modal}>
       <h3 className="form-title">Update Item</h3>
-      <form onSubmit={() => handleUpdate(props.product.updateID)}>
+      <form>
         <table>
           <tbody>
             <tr>
@@ -119,28 +121,29 @@ const FormUpdate = props => {
             </tr>
           </tbody>
         </table>
-        <div className="add-button-product">
-          <button type="submit" className="primary-button">
-            UPDATE
-          </button>
-        </div>
+      </form>
+      <div className="button-container">
         <div className="close-button-product-update">
           <button
             className="secondary-button-update"
             onClick={() => props.dispatch(updateModal(false))}
+            style={{ marginLeft: -24 }}
           >
             CANCEL
           </button>
         </div>
-      </form>
+        <div className="add-button-product">
+          <button onClick={event => handleUpdate(props.product.updateID, event)} className="primary-button">
+            UPDATE
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
 
 const MapStateToProps = ({ product }) => {
-  return {
-    product
-  };
+  return { product };
 };
 
 export default connect(MapStateToProps)(FormUpdate);

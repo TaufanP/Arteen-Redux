@@ -74,13 +74,15 @@
     float: left;
     width: 40%;
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .search-bar input{
     padding: 4px;
     border: none;
     border-radius: 4px; 
-    margin: 12px 0px 0px 100px;
     width: 300px;
     height: 24px;
     background-color: #EEE;
@@ -108,4 +110,18 @@
 
   .logout-label:hover{
     background-color: rgb(236, 23, 23);
+  }
+
+  .search-container{
+    flex: 1;
+  }
+
+  .select-container{
+    flex: 1;
+    padding-left: 40px;
+  }
+
+  .select-style{
+    padding: 6px;
+    border-radius: 4px;
   }
