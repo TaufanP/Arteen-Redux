@@ -5,19 +5,19 @@ import {
   getAllProduct,
   deleteProduct,
   updateModal,
-  getUpdateID
+  getUpdateID,
 } from "../redux/actions/product";
 
 import { addToCart } from "../redux/actions/cart";
 
-const ListProduct = props => {
-  const handleDelete = async id => {
+const ListProduct = (props) => {
+  const handleDelete = async (id) => {
     await props.dispatch(deleteProduct(id)).then(() => {
       props.dispatch(getAllProduct());
     });
   };
 
-  const handleEdit = id => {
+  const handleEdit = (id) => {
     props.dispatch(updateModal(true));
     props.dispatch(getUpdateID(id));
   };
@@ -27,16 +27,25 @@ const ListProduct = props => {
     name: props.name,
     price: props.price,
     image: props.image,
-    stock: props.stock
+    stock: props.stock,
   };
 
-  const handleCart = data => {
+  const handleCart = (data) => {
     props.dispatch(addToCart(data));
   };
 
   return (
     <div className="item-container">
-      <div className="item-image" onClick={() => handleCart(dataProduct)}>
+      <div
+        className={
+          props.keranjang.indexOf(props.id) !== -1
+            ? "item-image-selected"
+            : "item-image"
+        }
+        onClick={
+          props.keranjang.indexOf(props.id) === -1 ? () => handleCart(dataProduct) : {}
+        }
+      >
         <img src={props.image} alt={props.name} />
       </div>
       <div className="misc-container">
@@ -48,12 +57,12 @@ const ListProduct = props => {
           <div className="edit-option" onClick={() => handleEdit(props.id)}>
             <img
               src={require("../assets/images/pencil.svg")}
-              alt = "icon"
+              alt="icon"
               style={{
                 width: 28,
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: 6
+                marginTop: 6,
               }}
             />
           </div>
@@ -65,12 +74,12 @@ const ListProduct = props => {
           >
             <img
               src={require("../assets/images/ic_delete_48px.svg")}
-              alt = "icon"
+              alt="icon"
               style={{
                 width: 32,
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: 4
+                marginTop: 4,
               }}
             />
           </div>

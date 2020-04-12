@@ -42,15 +42,17 @@ const Products = props => {
           handleCart={props.handleCart}
           selected={props.selected}
           selectedValue={props.selectedValue}
+          keranjang = {props.cart.basketIDs}
         />
       ))}
     </div>
   );
 };
 
-const mapStateToProps = ({ product }) => {
+const mapStateToProps = ({ product, cart}) => {
   return {
-    product
+    product,
+    cart
   };
 };
 
