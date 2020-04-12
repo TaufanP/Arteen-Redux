@@ -43,7 +43,7 @@ const ListProduct = (props) => {
             : "item-image"
         }
         onClick={
-          props.keranjang.indexOf(props.id) === -1 ? () => handleCart(dataProduct) : {}
+          props.keranjang.indexOf(props.id) === -1 ? () => handleCart(dataProduct) : ()=> null
         }
       >
         <img src={props.image} alt={props.name} />
