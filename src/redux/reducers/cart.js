@@ -36,10 +36,13 @@ const cartReducer = (state = initialValue, action) => {
       };
     case "REMOVE_CART":
       let basketCancel = [...state.baskets];
+      let basketCancelID = [...state.basketIDs];
       basketCancel = [];
+      basketCancelID = [];
       return {
         ...state,
-        baskets: basketCancel
+        baskets: basketCancel,
+        basketIDs: basketCancelID
       };
     default:
       return state;
