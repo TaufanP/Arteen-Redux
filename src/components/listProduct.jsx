@@ -24,6 +24,7 @@ const ListProduct = (props) => {
 
   const dataProduct = {
     id: props.id,
+    count: 1,
     name: props.name,
     price: props.price,
     image: props.image,

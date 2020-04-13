@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align='center'>Arteen</h1>
 
-## Available Scripts
+<p align='center'>
+  <a href='https://facebook.github.io/react-native/'>
+  <img width="500" src='https://cdn-images-1.medium.com/max/1600/1*-B6I9Z__mLkkiSShRLR4iQ.png' />
+  </a>
+</p>
 
-In the project directory, you can run:
+<br>
+<br>
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Arteen is a Point of Sale (POS) application built with ReactJS, Redux, and NodeJS. POS app is an application used to manage store goods and record the orders. Arteen backend built with NodeJS can be found at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen-NodeJS.</a>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Introduction
+[![React.js](https://img.shields.io/badge/React-16.12.0-blue.svg?style=rounded-square)](https://facebook.github.io/react/)
+[![Redux](https://img.shields.io/badge/Redux-v.4.0.5-purple.svg?style=rounded-square)](https://redux.js.org/)
+[![Axios](https://img.shields.io/badge/Axios-v.0.19.2-66a1ff.svg?style=rounded-square)](https://github.com/axios/axios)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Related Project
+<a href="https://github.com/TaufanP/Arteen-ReactJS">ReactJS - Arteen ReactJS</a>
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
+1. <a href="https://nodejs.org/en/download/">Node Js</a>
+2. node_modules
+3. Arteen backend. clone at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen NodeJS</a>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## How to Install
+1. Make sure You have the backend application. if you don't have one you can download or clone <a href="https://github.com/PxllPie/Notes-App-ExpressJs-BackEnd">here!</a>
+2. Run the BackEnd application. You can see the way <a href="https://github.com/TaufanP/Arteen-NodeJS" >Here!</a>
+3. Open app's directory in CMD or Terminal
+4. Type ` npm install `
+5. Type ` npm start `
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Access The Website
+You can access the POS Website at <a target="_blank">http://54.159.200.168:3000/</a>
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Web Preview
+![update](https://user-images.githubusercontent.com/33638021/79116896-d7b80200-7db3-11ea-89f4-f764b0c5667b.png)
+![listproduct](https://user-images.githubusercontent.com/33638021/79116904-da1a5c00-7db3-11ea-93b7-4bfdc3351351.png)
+![listproductfilled](https://user-images.githubusercontent.com/33638021/79116908-dab2f280-7db3-11ea-88ae-71ea2bce5a9d.png)
+![sign in](https://user-images.githubusercontent.com/33638021/79116910-dbe41f80-7db3-11ea-8293-d1028a4eb507.png)

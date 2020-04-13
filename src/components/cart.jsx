@@ -41,7 +41,7 @@ const Cart = props => {
       }
     };
     props.cart.baskets.map(async value => {
-      const quantity = localStorage.getItem(value.id);
+      const quantity = value.count;
       totalPrice = totalPrice + quantity * value.price;
       const data = {
         id_product: value.id,
