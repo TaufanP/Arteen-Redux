@@ -10,7 +10,7 @@
 <br>
 
 
-Arteen is a Point of Sale (POS) application built with ReactJS, Redux, and NodeJS. POS app is an application used to manage store goods and record the orders. Arteen backend built with NodeJS can be found at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen-NodeJS.</a>
+Arteen is a Point of Sale (POS) application built with ReactJS, Redux, and NodeJS. POS app is an application used to manage store's goods and record the orders. Arteen backend built with NodeJS can be found at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen-NodeJS.</a>
 
 
 ## Introduction
@@ -25,19 +25,19 @@ Arteen is a Point of Sale (POS) application built with ReactJS, Redux, and NodeJ
 ## Requirements
 1. <a href="https://nodejs.org/en/download/">Node Js</a>
 2. node_modules
-3. Arteen backend. clone at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen NodeJS</a>
+3. <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen backend</a>
 
 ## How to Install
-1. Make sure You have the backend application. if you don't have one you can download or clone at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen NodeJS</a>
-2. Run the BackEnd application. You can see the way <a href="https://github.com/TaufanP/Arteen-NodeJS" >Here!</a>
+1. Make sure you have the backend application. You can download or clone it at <a href="https://github.com/TaufanP/Arteen-NodeJS">Arteen NodeJS</a>
+2. Run the BackEnd application. You can see the way <a href="https://github.com/TaufanP/Arteen-NodeJS" >here!</a>
 3. Open app's directory in CMD or Terminal
 4. Type ` npm install `
 5. Type ` npm start `
 
 ## Access The Website
-You can access the POS Website at <a target="_blank">http://54.159.200.168:3000/</a>
+You can access the Arteen at <a target="_blank">http://54.159.200.168:3000/</a>
 
-## Web Preview
+## Arteen Preview
 ![sign-in](https://user-images.githubusercontent.com/33638021/79171851-54cb9180-7e1d-11ea-82a7-ca3f75a64264.png)
 ![home-product](https://user-images.githubusercontent.com/33638021/79171860-585f1880-7e1d-11ea-8442-b58a7836bcbc.png)
 ![add-product](https://user-images.githubusercontent.com/33638021/79171855-56955500-7e1d-11ea-88a0-6c5a4c21626a.png)
