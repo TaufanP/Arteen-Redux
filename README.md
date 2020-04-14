@@ -1,7 +1,7 @@
 <h1 align='center'>Arteen</h1>
 
 <p align='center'>
-  <a href='https://facebook.github.io/react-native/'>
+  <a href='https://reactjs.org/'>
   <img width="500" src='https://cdn-images-1.medium.com/max/1600/1*-B6I9Z__mLkkiSShRLR4iQ.png' />
   </a>
 </p>
