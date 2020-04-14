@@ -38,8 +38,9 @@ Arteen is a Point of Sale (POS) application built with ReactJS, Redux, and NodeJ
 You can access the Arteen at <a target="_blank">http://54.159.200.168:3000/</a>
 
 ## Arteen Preview
-### Sign in
 ![sign-in](https://user-images.githubusercontent.com/33638021/79171851-54cb9180-7e1d-11ea-82a7-ca3f75a64264.png)
+<h5 align='center'>Picture 1: Sign In</h5>
+
 ### Homepage
 ![home-product](https://user-images.githubusercontent.com/33638021/79171860-585f1880-7e1d-11ea-8442-b58a7836bcbc.png)
 ### Adding a product
