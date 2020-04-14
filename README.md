@@ -39,20 +39,26 @@ You can access the Arteen at <a target="_blank">http://54.159.200.168:3000/</a>
 
 ## Arteen Preview
 <h5 align='center'>Picture 1: Sign In</h5>
+
 ![sign-in](https://user-images.githubusercontent.com/33638021/79171851-54cb9180-7e1d-11ea-82a7-ca3f75a64264.png)
 
 <h5 align='center'>Picture 2: Homepage</h5>
+
 ![home-product](https://user-images.githubusercontent.com/33638021/79171860-585f1880-7e1d-11ea-8442-b58a7836bcbc.png)
 
 <h5 align='center'>Picture 3: Adding a product</h5>
+
 ![add-product](https://user-images.githubusercontent.com/33638021/79171855-56955500-7e1d-11ea-88a0-6c5a4c21626a.png)
 
 <h5 align='center'>Picture 4: Add items to the cart</h5>
+
 ![select-item](https://user-images.githubusercontent.com/33638021/79171866-5a28dc00-7e1d-11ea-88f9-3f7c6d4a1ccd.png)
 
 <h5 align='center'>Picture 5: Receipt</h5>
+
 ![order-detail](https://user-images.githubusercontent.com/33638021/79171864-59904580-7e1d-11ea-9640-c7ceedd4d912.png)
 
 <h5 align='center'>Picture 6: Orders History</h5>
+
 ![history](https://user-images.githubusercontent.com/33638021/79171858-57c68200-7e1d-11ea-8410-d591d81afd23.png)
 
